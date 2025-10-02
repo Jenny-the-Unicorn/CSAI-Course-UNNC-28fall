@@ -1,0 +1,240 @@
+\documentclass{article} 
+\usepackage{amsmath} % these two packages are needed to support the typesetting of most math-related LaTeX commands/environments.
+\usepackage{amssymb}
+
+\title{Lab 8 Notes\\ {\small Typesetting MATH in \LaTeX}}
+\author{Module Convenor}
+\date{14/04/2025}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\textit{(review)} inline math and display math}
+
+
+The mass-energy equivalence is described by the famous equation
+\[ E=mc^2 \]
+discovered in 1905 by Albert Einstein. In natural units ($c=1$), the formula expresses the identity
+$$  E=m. $$
+
+
+\noindent If $f$ is continuous on the interval $[a,b]$ and $F$ is any antiderivative of $f$, then
+\[
+\int _{a}^{b} f(x)\,dx =F(b)-F(a)
+\]
+This is known as \textit{Fundamental Theorem of Calculus}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{equation environment}
+
+
+\begin{equation}
+\log_{27} 81=\frac{\log_3 81}{\log_3 27}=\frac{4}{3}
+\end{equation}
+
+
+
+\begin{equation}
+\frac{d}{dx} (\sec x )= \sec x \cdot \tan x
+\end{equation}
+
+\begin{equation}
+\sum_{n=1}^{\infty} \frac{1}{n^2}=1+\frac{1}{2^2}+\frac{1}{3^2}+\cdots =\frac{\pi^2}{6}
+\end{equation}
+
+\begin{equation*} % adding * here will hide the equation number
+\sum_{k=1}^{n} k^3=\frac{n^2(n+1)^2}{4}
+\end{equation*}
+
+\begin{equation}
+\lim_{\theta \to 0} \frac{\sin\theta}{\theta} = 1
+\end{equation}
+
+
+\begin{equation*}
+\lim_{x\to \infty} \left(\frac{\sin x}{x}\right)^2 = 0  % you can use (...)^2 here, but
+% \left(...\right) can automatically adjust the bracket size based on the content within for a better look.
+\end{equation*}
+
+\begin{equation}
+x_{n+1} = x_n-\frac{f(x_n)}{f'(x_n)}
+\end{equation}
+
+
+
+\begin{equation}
+\lnot (p \lor q) = \lnot p \land \lnot q  \nonumber % \nonumber can also hide the equation number
+\end{equation}
+
+\begin{equation}
+y=e^x\Leftrightarrow x=\ln y
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{eqnarray environment}
+
+
+\begin{eqnarray} % aligning multiple lines at the place specified by &..&
+x + 2y -z &=&0\\
+2x-3y+5z &=&3\\
+-3y+2z &=&-8
+\end{eqnarray}
+
+\begin{eqnarray*}
+\sin(\alpha\pm\beta) &=& \sin\alpha\cos\beta \pm \cos\alpha\sin\beta\\
+\cos(\alpha\pm\beta) &=& \cos\alpha\cos\beta \mp \sin\alpha\sin\beta
+\end{eqnarray*}
+
+\begin{eqnarray}
+\sin^2 \theta &=& \frac{1}{2}(1-\cos 2\theta)\\
+\cos^2\theta &=& \frac{1}{2}(1+\cos 2\theta)
+\end{eqnarray}
+
+\subsection{align environment}
+
+\begin{align} % aligning multiple lines at the place specified by &...
+x + 2y -z &=0\\
+2x-3y+5z &=3 \nonumber \\
+-3y+2z &=-8
+\end{align}
+
+\begin{align*}
+p(x)&=(x-2) \cdot (x^2-9) \\
+&=(x-2)(x-3)(x+3) 
+\end{align*}
+
+\begin{align*}
+(x+2)^3 &=\binom{3}{0}x^3+\binom{3}{1}x^2\cdot 2^1+\binom{3}{2}x^1\cdot 2^2+\binom{3}{3} 2^3\\[2mm] % [2mm] after \\ can add more vertical spaces between the lines
+&= x^3+6x^2+12x+8
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{matrix environment}
+
+\begin{equation}
+\begin{bmatrix} % a matrix in brackets [...]
+1 & 2 & 3\\
+4 & 5 & 6
+\end{bmatrix}
+=
+\begin{pmatrix} % a matrix in parentheses (...)
+1 & 2 & 3\\
+4 & 5 & 6
+\end{pmatrix}
+\end{equation}
+
+$$
+\det 
+\begin{pmatrix}
+1 & 2\\
+3 &4
+\end{pmatrix}
+=
+\begin{vmatrix} % a matrix in vertical lines |...|
+1 & 2\\
+3 &4
+\end{vmatrix}
+=1\cdot 4-2\cdot 3=-2
+$$
+
+\begin{eqnarray}
+\begin{pmatrix}
+1 & 2\\
+3 &4
+\end{pmatrix}^{-1}
+&=&
+\frac{1}{-2}\cdot
+\begin{pmatrix}
+4 & -2\\
+-3 &1
+\end{pmatrix} \nonumber \\[2mm]
+&=&
+\begin{pmatrix}
+-2 & 1\\
+1.5 &-0.5
+\end{pmatrix}
+\end{eqnarray}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{array environment}
+% this environment can typeset similar matrix strucutres with more flexibilities. you can compare the examples to those above
+
+\begin{equation*}
+\left[ % specify the types of bracket around the matrix elements
+\begin{array}{ccc} % specify column alignment left/center/right
+1 & 2 & 3\\
+4 & 5 & 6
+\end{array}
+\right] % specify the types of bracket around the matrix elements
+=
+\left( % specify the types of bracket around the matrix elements
+\begin{array}{ccc}
+1 & 2 & 3\\
+4 & 5 & 6
+\end{array}
+\right) % specify the types of bracket around the matrix elements
+\end{equation*}
+
+
+\begin{equation}
+\det 
+\left(
+\begin{array}{cc}
+1 & 2\\
+3 &4
+\end{array}
+\right)
+=
+\left|
+\begin{array}{cc}
+1 & 2\\
+3 &4
+\end{array}
+\right|
+=1\cdot 4-2\cdot 3=-2
+\end{equation}
+
+\begin{eqnarray}
+\left(\begin{array}{cc}
+1 & 2\\
+3 &4
+\end{array}\right)^{-1}
+&=&
+\frac{1}{-2}\cdot
+\left(
+\begin{array}{rr}
+4 & -2\\
+-3 &1
+\end{array}\right) \\[2mm]
+&=&
+\left(
+\begin{array}{rr}
+-2 & 1\\
+1.5 &-0.5
+\end{array}\right) \nonumber
+\end{eqnarray}
+
+
+% below is another application: typesetting piecewise function
+\begin{equation}
+|x|= 
+\left\{ % specify the left curly bracket around the content
+\begin{array}{rc}
+x,& x\ge 0\\
+-x, & x<0
+\end{array}
+\right. % there is no right curly bracket needed, put . here to form a left-right pair.
+\end{equation}
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,148 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin= 3cm, top = 2cm, bottom=2cm]{geometry}
+\title{IMSP revision}
+\author{Jenny}
+\date{ 2025 May 9}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{List}
+\subsection{unordered list}
+\begin{itemize} 
+\item A
+\item B
+\end{itemize}
+\subsection{ ordered list}
+\begin{enumerate}
+\item A
+\item B
+\end{enumerate}
+\subsection{nested list}
+\begin{enumerate}
+\item A
+\begin{itemize} 
+\item a
+\item b
+\end{itemize}
+\item B
+\begin{itemize} 
+\item a
+\item b
+\end{itemize}
+\end{enumerate}
+
+\section{table}
+\subsection{table environment}
+\begin{table}[!h]%here
+\centering
+\begin{tabular}{|c|c|c|c|} %Alignment of each column is specified by l, c or r
+\hline
+1&2&3&4\\
+\hline
+A&B&C&D\\
+\hline
+\end{tabular}
+\caption{Table1}
+\end{table}
+
+\subsection{simple table using tabular}
+\begin{tabular}{|c|c|c|c|} %Alignment of each column is specified by l, c or r
+\hline
+1&2&3&4\\
+\hline
+A&B&C&D\\
+\hline
+\end{tabular}
+
+\section{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{fig1}
+\caption{Figure 1}
+\end{figure}
+
+\section{code}
+\subsection{single line}
+\verb| single-line program code or command |
+\subsection{multiple-line codes}
+\begin{verbatim}
+multiple-line program codes
+\end{verbatim}
+
+\section{Font}
+{\tiny tiny}$>${\scriptsize scriptsize}$>${\footnotesize footnotesize}$>${\small small}\\
+{\large large}$<${\Large Large}$<${\LARGE LARGE}$<$d{\huge huge}$<${\Huge Huge}
+\textbf{ boldface text }\\ 
+\textit{ italics text } \\
+\underline{ underlined text} \\
+\textsc{smallcaps text}\\
+\texttt{teletype text}\\
+
+\section{math}
+\subsection{simple inline math}
+$f(x)=x^2$\\
+\(\sqrt{1-2x}=0 \Rightarrow x=\frac{1}{2}\)
+
+\subsection{display math}
+$$x_{n+1}=x_n -\frac{f(x_n)}{f^{'}(x_n)}$$
+\[(1+x)^n\approx1+nx+\frac{n(n-1)}{2}x^2\]
+
+\subsection{special characters}
+
+\subsection{equation environment}
+\begin{equation}
+ \int_{0}^{1} 2x\,dx  =[x^2] _{0}^{1}=1
+\end{equation}
+
+\subsection{eqnarray environment}
+\begin{eqnarray}
+\frac{d}{dx}(\sin^{-1}x)&=&\frac{1}{\sqrt{1-x^2}}\\
+\frac{d}{dx}(\cos^{-1}x)&=&\frac{-1}{\sqrt{1-x^2}}\\
+\cos^{2}\theta+\sin^{2}\theta&=& 1\\
+\tan^{2}\theta+1&=& \sec^{2}\theta
+\end{eqnarray}
+
+ \subsection{align environment}
+\begin{align}
+\cos^{2}\theta+\sin^{2}\theta&= 1\\
+\tan^{2}\theta+1&= \sec^{2}\theta
+\end{align}
+
+\subsection{matrix in parentheses( )}
+\begin{equation}%%%important
+\begin{pmatrix} % adding * here will hide the equation number
+a&b\\
+c&d
+\end{pmatrix}
+\end{equation}
+\subsection{matrix in brackets [ ]}
+\begin{equation}
+\begin{bmatrix}
+a&b\\
+c&d
+\end{bmatrix}
+\end{equation}
+\subsection{matrix in vertical lines}
+\begin{equation}
+\begin{vmatrix}
+a&b\\
+c&d
+\end{vmatrix}
+\end{equation}
+\subsection{matrix using array environment}
+\begin{equation}
+\left(% specify bracket pairs: \left(, \left[, \left|, \left\{
+\begin{array}{cc}
+a&b\\
+c&d
+\end{array}
+\right)% specify bracket pairs: \right(, \right[, \right|, \right\{
+\end{equation}
+\end{document}

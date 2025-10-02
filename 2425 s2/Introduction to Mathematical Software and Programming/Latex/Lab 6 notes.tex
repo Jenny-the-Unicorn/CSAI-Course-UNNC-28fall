@@ -1,0 +1,132 @@
+\documentclass{article}
+
+% this section, before the \begin{document} is called ``preamble''.
+% it is used for configuring general document settings
+% such as the title page information, page layout, declaring use of packages
+
+\title{Lab 6 Notes} 
+\author{XXX}
+\date{\today} % to configure other date, use \date{...}
+
+\begin{document}
+\maketitle  % the information of title/author/date will be displayed by calling this command
+
+\tableofcontents % if you have section or subsection created in the document, calling this command will produce a table of contents with sections names and their page numbers.
+
+\newpage % command to start a new page
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+
+\LaTeX\,is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. \\
+
+In Session 6, we will get started with writing a simple document to familiarize ourselves with the basic \LaTeX\,working environment. Please check the self-study links, there are some good online tutorials.\\
+
+Tutor will guide you in creating your first lab notes using \LaTeX.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{List}
+There are two basic types: \underline{ordered/numbered} list and \underline{unordered/bulleted} list. % underlined text
+\subsection{ordered list}
+Example 1:
+
+\begin{enumerate}
+\item milk
+\item fruit
+\item meat
+\end{enumerate}
+\textit{Note: at least one ``item'' is needed.} % italic text
+
+\subsection{unordered list}
+Example 2:
+
+\begin{itemize}
+\item apple
+\item banana
+\item pear
+\end{itemize}
+
+\subsection{nested lists}
+One list can be added into another list as one of its items.\\
+
+\noindent Example 3:
+\begin{enumerate}
+\item milk
+\item fruit
+	\begin{itemize}
+	\item apple
+	\item banana
+	\item pear
+	\end{itemize}
+\item meat
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Simple Math}
+There are two basic math modes for type setting math expressions: \textbf{inline math} and \textbf{display math}. % boldface text
+\subsection{inline math} % $...$   or \(...\)
+
+\begin{enumerate}
+\item
+$f(x)=\sin(x)$ has three roots on interval $[0,2\pi]$.
+\item
+$ (a+b)^2=a^2+2ab+b^2 $
+\item
+\(   \sqrt{1-2x}=0 \Rightarrow x=\frac{1}{2}   \)
+\end{enumerate}
+
+\subsection{display math} %  $...$  or  \[ ... \]
+
+\begin{enumerate}
+
+\item
+$$(a+b)^2=a^2+2ab+b^2$$
+\item
+\[
+\sqrt{1-2x}=0 \Rightarrow x=\frac{1}{2}
+\]
+\end{enumerate}
+
+\subsection{inline vs. display math}
+Use inline/display math wisely based on the context. For example:\\
+
+The root of the quadratic equation $ax^2+bx+c=0$ is given by
+\[
+x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} % you can find how to typeset each symbol here by looking it up in the Command Sheet.
+\]
+where $\Delta=b^2-4ac$ is called the discriminant.
+
+
+
+
+% Note: 
+% 1. all math related commands must be put inside a math mode $...$ or $$...$$. 
+% 2. there are tons of commands for typesetting different math symbols or expressions. We cannot list all of them out here. therefore, you may need to frequently refer to the LaTeX Command Sheet when you encounter new expressions, and it is a common way of learning LaTeX.
+% 3. In Session 8, we will work with more complicated math expressions and equations. Right now, you can try to typeset some equations that are frequently used in your math class as self practice.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

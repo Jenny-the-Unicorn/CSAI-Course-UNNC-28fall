@@ -1,0 +1,170 @@
+\documentclass[12pt,a4paper]{article} % what's the meaning of the settings in the []? find it in your self-study links.
+\usepackage{graphicx} % this package is needed for inserting image
+\usepackage[margin=3cm,top=2cm,bottom=2cm]{geometry} % this package can be used for adjusting the page margins
+
+\title{Lab 7 Notes}
+\author{XXX}
+\date{31/03/2025}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Table}
+\subsection{simple table}
+Example 1:\\
+
+\begin{tabular}{|c|c|}
+\hline
+ True&False\\
+\hline
+logical 1 & logical 0\\
+\hline
+\end{tabular}
+
+\subsection{table environment (floating)}
+
+Example 2:\\
+\begin{table}[!htb] % h: here. t: top. b: bottom. Check self-study links for more detailed explanation.
+\centering
+\begin{tabular}{|l|r|} % l: left aligned, r: right aligned, c: center aligned
+\hline
+ True&False\\
+\hline
+logical 1 & logical 0\\
+\hline
+\end{tabular}
+\caption{Simple Table}
+\end{table}
+
+\noindent Pay attention to the alignment (left/center/right) here.\\ % \noindent is to cancell the auto-indentation at the beginning of each paragraph
+
+\noindent Example 3:\\
+\begin{table}[!htbp]
+\centering
+\begin{tabular}{c|c|c|c}
+$p$ & $q$ & $p \land q$ &  $p \lor q$\\ % math-related cells should be put into inline math mode each
+\hline
+true & true & true & true\\
+\hline
+true & false & false & true\\
+\end{tabular}
+\caption{Truth Table}
+\end{table}
+
+\section{Figure}
+
+Extra package is needed for inserting images to \LaTeX\,files. The command 
+\verb|\usepackage{graphicx}| must be declared in the preamble.
+
+\subsection{simple image}
+%Example 4:\\
+%Here is one image captured from the website https://www.latex-project.org/\\
+%\includegraphics[scale=0.5]{image 1}\\ % the image file must be in the same folder as the source code; otherwise, you need to specify the path of its location (see self-study links)
+%Use ``Windows+Shift+S'' to capture the screen.
+
+%\subsection{figure environment (floating)} \label{plot} % this is for cross-reference
+%Example 5:\\
+%Plot the graphs of two functions on interval $[-\pi/2,\pi/2]$ in MATLAB:[
+%f(x) = \sin(x)\cos(x), \quad g(x)=1-2x^2 
+%\]
+%Use different colors and line styles.
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=0.8\textwidth]{image 2} % common ways of adjusting the figure size
+%\caption{MATLAB plot}
+%\end{figure}
+
+\section{Code}
+\subsection{simple code}
+Example 6:\\
+$y=\sqrt[3]{x}$ can be typeset by \verb|$y=\sqrt[3]{x}$|.
+
+\subsection{verbatim environment}
+Example 7:\\
+The MATLAB source code for generating the figure in Section \ref{plot} is listed below. % this is for cross-reference
+\begin{verbatim}
+x = linspace(-pi/2,pi/2);
+f = sin(x).*cos(x);
+g = 1-2*x.^2;
+plot(x,f,'r:',x,g,'b--','LineWidth',2)
+grid on
+legend('f(x)','g(x)')
+title('two functions')
+\end{verbatim}
+
+\section{Font}
+
+\subsection{font size}
+Different font sizes supported in \LaTeX:\\
+
+\noindent Example 8:\\
+Here is a {\tiny sample word}.\\
+Here is a {\scriptsize sample word}.\\
+Here is a {\footnotesize sample word}.\\
+Here is a {\small sample word}.\\
+Here is a sample word in normal size.\\
+Here is a {\large sample word}.\\
+Here is a {\Large sample word}.\\
+Here is a {\LARGE sample word}.\\
+Here is a {\huge sample word}.\\
+Here is a {\Huge sample word}.\\
+
+\noindent The source code is listed below for your reference.
+\begin{verbatim}
+Here is a {\tiny sample word}.\\
+Here is a {\scriptsize sample word}.\\
+Here is a {\footnotesize sample word}.\\
+Here is a {\small sample word}.\\
+Here is a sample word in normal size.\\
+Here is a {\large sample word}.\\
+Here is a {\Large sample word}.\\
+Here is a {\LARGE sample word}.\\
+Here is a {\huge sample word}.\\
+Here is a {\Huge sample word}.\\
+\end{verbatim}
+
+\subsection{font style}
+Common font styles used in \LaTeX:\\
+
+\noindent Example 9:\\
+normal text\\
+\textbf{boldface text}\\
+\textit{italics text}\\
+\textsc{smallcaps text}\\
+\texttt{teletype text}\\
+\underline{underline text}\\
+
+\noindent The source code is listed below for your reference.
+\begin{verbatim}
+normal text\\
+\textbf{boldface text}\\
+\textit{italics text}\\
+\textsc{smallcaps text}\\
+\texttt{teletype text}\\
+\underline{underline text}\\
+\end{verbatim}
+
+\noindent Example 10:\\
+We can \textbf{\small combine} the \textbf{\large font size} and \underline{\textit{font style}} for highlighting the content, but \textsc{do not} \texttt{\huge abuse} them.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
