@@ -1,0 +1,249 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=1.5cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd,mathtools}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{mathrsfs}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+\pagestyle{fancyplain}
+\headheight 20pt
+\lhead{\textbf{COMP1046-CW1}}              
+\rhead{Student ID: \textbf{20717902
+}}
+\cfoot{}
+\rfoot{\small Page \thepage}
+\headsep 1em
+
+\begin{document}
+%%% Please start every new question in a new page %%%
+\subsection*{Question 1}
+Given:\\
+$\forall x \exists y(C(x) \to (D(y) \land L(y,x)))$\\
+$\forall x \forall y(D(x) \land S(y) \to \neg L(x,y))$\\
+To prove: $\forall x(C(x) \to \neg S(x))$
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2} 
+\begin{tabular}{|l | p{6cm} | p{4.5cm} |}
+\hline
+\textbf{Number} & \textbf{Step} & \textbf{Reason} \\
+\hline
+1 & $\forall x \exists y(C(x) \to (D(y) \land L(y,x)))$& Premise(Given) \\
+\hline
+2 & $\forall x \forall y(D(x) \land S(y) \to \neg L(x,y))$ & Premise(Given) \\
+\hline
+3 & $ \exists y(C(a) \to (D(y) \land L(y,a)))$&Universal Instantiation from 1, $a$ is an arbitrary element\\
+\hline
+4&$C(a) \to (D(b) \land L(b,a))$&Existential Instantiation from 3, for some $b$\\
+\hline
+5&$D(b) \land L(b,a)$&Modus Ponens from 4, assuming C(a) is true \\
+\hline
+6&$L(b,a)$&Simplification from 5\\
+\hline
+7&$D(b)$ &Simplification from 5 \\
+\hline
+8& $D(b) \land S(a) \to \neg L(b,a)$ &Universal Instantiation from 2,$x=b$,  $y=a$\\
+\hline
+9&$\neg (D(b) \land S(a))$ &Modus Tollens from 6, 7 and 8 \\
+\hline
+10&$\neg D(b) \lor \neg S(a)$ &De Morgan's law \\
+\hline
+11&$\neg S(a)$&Disjunctive Syllogism from 7 and 10\\
+\hline
+12& $C(a) \to \neg S(a)$ & Conditional Proof from 5 and 11\\
+\hline
+13&$\forall x(C(x) \to \neg S(x))$& Universal Generalization from 12 \\
+\hline
+\end{tabular}
+\end{table}
+\newpage
+\subsection*{Question 2}
+Solution: Let P(n) be the propostion that $ 7^n - 6n - 1 \equiv 0 \pmod{36}$, for $n \in \mathbb{Z},n \geq 1$. 
+BASIS STEP:\\ P(1)is true because
+\begin{align*}
+7^1 - 6(1) - 1 &= 7 - 6 - 1 = 0 \\
+0 &= 0 \pmod{36} \quad 
+\end{align*}
+\\
+INDUCTIVE STEP:\\
+For the inductive hypothesis, we assume that P($k$) is true for an integer $k$ that $k \in \mathbb{Z} $  and $k \geq 1$. That is, we assume that
+\[
+7^k - 6k - 1 \equiv 0 \pmod{36}
+\] for a integer $k \in \mathbb{Z}$ and $k \geq 1$.\\
+To carry out the inductive step using this assumption, we assume that P(k) is true, then we must show that P(k+1) is also true, which is
+\[
+7^{k+1} - 6(k + 1) - 1 \equiv 0 \pmod{36}
+\]
+Because
+\begin{align*}
+7^{k+1} - 6(k + 1) - 1 &= 7 \cdot 7^k - 6k - 6 - 1 \\
+&= 7 \cdot 7^k - 6k - 7
+\end{align*}
+
+So, $7 \cdot 7^k - 6k - 7 = 36n$ for an existing $n \in \mathbb{Z}$.
+
+Using the inductive hypothesis, we need to prove that $7^{k+1} - 6(k + 1) - 1 \equiv 0 \pmod{36}$:
+
+\begin{align*}
+7^{k+1} - 6(k + 1) - 1 & = 7(36n + 6k + 1) - 6k - 7 \\
+& = 252n + 42k + 7 - 6k - 7 \\
+& = 36(7n + k)
+\end{align*}
+Because we have completed the basis step and the inductive step, by mathematical induction, we know that P(n) is true for all $n \in \mathbb{Z},n \geq 1$. That is $ 7^n - 6n - 1 \equiv 0 \pmod{36}$, for $n \in \mathbb{Z},n \geq 1$. 
+
+\newpage
+\subsection*{Question 3}
+
+\textbf{Prove:} \\
+
+For $a \in X \setminus \bigcup \mathcal{F}$, we have $a \in X$ and $a \notin \bigcup \mathcal{F}$, by the definition of set difference.\\
+Since $a \notin \bigcup \mathcal{F}$, $a$ is not in any set $Y \in \mathcal{F}$ by the definition of union.\\
+Thus, for every $Y \in \mathcal{F}$, we have $a \in X \setminus Y$.\\
+This implies $a \in \bigcap \{ X \setminus Y \mid Y \in \mathcal{F} \}$, by the definition of set difference.\\
+Since $a \in X \setminus \bigcup \mathcal{F}$, by the definition of intersection,
+\begin{align*}
+X \setminus \left( \bigcup \mathcal{F} \right) &\subseteq \bigcap \{ X \setminus Y \mid Y \in \mathcal{F} \}.
+\end{align*}
+
+For $b \in \bigcap \{ X \setminus Y \mid Y \in \mathcal{F} \}$, for every $Y \in \mathcal{F}$, we have $b \in X \setminus Y$ by the definition of intersection. Which means, $b \in X$ and $b \notin Y$ for every $Y \in \mathcal{F}$.\\
+Since $b$ is not in any $Y \in \mathcal{F}$, $b \notin \bigcup \mathcal{F}$, by the definition of union.\\
+Since $b \in X$ and $b \notin \bigcup \mathcal{F}$, we have $b \in X \setminus \bigcup \mathcal{F}$.\\
+ Because $b \in \bigcap \{ X \setminus Y \mid Y \in \mathcal{F} \}$, by the definition of set difference,
+\begin{align*}
+\bigcap \{ X \setminus Y \mid Y \in \mathcal{F} \} &\subseteq X \setminus \left( \bigcup \mathcal{F} \right).
+\end{align*}
+
+From both inclusions, we can conclude that:
+\[
+X \setminus \left( \bigcup \mathcal{F} \right) = \bigcap \{ X \setminus Y \mid Y \in \mathcal{F} \}
+\]
+\newpage
+\subsection*{Question 4}
+\begin{enumerate}
+\item Reflexivity\\
+Reflexivity is that for every $A \in \mathcal{P}(X)$,  $(A, A) \in R$.\\
+Since the power set $\mathcal{P}(X)$ contains the empty set $\emptyset$ as an element, when $A = \emptyset$, we have $\emptyset \cap \emptyset = \emptyset$. This does not satisfy the condition $A \cap A \neq \emptyset$.\\
+Therefore, $(\emptyset, \emptyset) \notin R$.\\
+The relation $R$ is not reflexive.
+
+\item Symmetry\\
+Symmetry is that for every $A, B \in \mathcal{P}(X)$,  there is also $(B, A) \in R$.\\
+ Assume $(A, B) \in R$, which means $A \cap B \neq \emptyset$.
+ Since that $A \cap B = B \cap A$, if $A \cap B \neq \emptyset$, then$B \cap A \neq \emptyset$ is also ture. By the definition of $R$, the condition $B \cap A \neq \emptyset$ implies that $(B, A) \in R$.
+\\The relation $R$ is symmetric.
+
+\item Antisymmetry\\
+Antisymmetry is that for every $A, B \in \mathcal{P}(X)$, whenever $(A, B) \in R$ and $(B, A) \in R$, it follows that $A = B$.\\
+We can proof that $R$ is not antisymmetry by giving a counterexample of this.\\
+Let $X = \{0,1, 2\}$(which is not empty), $A = \{0,1\}$ and $B = \{1, 2\}$.\\
+    \[ A \cap B =   \{0,1\}\cap\{1, 2\} = \{1\} \]
+Since $A \cap B \neq \emptyset$,  $(A, B) \in R$.
+    \[ B \cap A =\{1, 2\}  \cap\{0, 1\}  = \{1\} \]
+Thus, $B \cap A \neq \emptyset$,  $(B, A) \in R$.
+However, $A \neq B$.
+So, according to the definition, the relation $R$ is not antisymmetric.
+
+\item Transitivity\\
+Transitivity is that for every $A, B, C \in \mathcal{P}(X)$, whenever $(A, B) \in R$ and $(B, C) \in R$, it follows that $(A, C) \in R$.
+We can proof that $R$ is not transitivity by giving a counterexample of this.\\
+Let $X = \{1, 2, 3, 4\}$, $A = \{1, 2\}$, $B = \{2, 3\}$, and $C = \{3, 4\}$.
+    \[ A \cap B = \{1, 2\} \cap \{2, 3\} = \{2\} \neq \emptyset \]
+   So, $(A, B) \in R$.
+    \[ B \cap C = \{2, 3\} \cap \{3, 4\} = \{3\} \neq \emptyset \]
+    So, $(B, C) \in R$.
+    \[ A \cap C = \{1, 2\} \cap \{3, 4\} = \emptyset \]
+Since the intersection is the empty set, $(A, C) \notin R$.
+So, according to the definition, The relation is not transitive.
+\end{enumerate}
+
+\newpage
+\subsection*{Question 5}
+(a) \\
+Let\\
+The probability that an attack event occurs: $P(A) = 0.02$\\
+The probability that no attack event occurs:$P(\overline{A}) = 1 - P(A) = 0.98$\\
+The probability that an event that the IDS raises a high-priority alert occurs:$P(R)$\\
+The probability that an event that the IDS does not raise a high-priority alert occurs:$P(\overline{R})$\\
+Using Bayes' Theorem:\\
+\[
+P(A \mid \overline{R}) = \frac{P(\overline{R} \mid A) \cdot P(A)}{P(\overline{R})}
+\]
+Since that
+\[
+P(\overline{R} \mid A) = 1 - P(R \mid A) = 0.02 
+\]
+\begin{align*}
+P(\overline{R}) &= P(\overline{R} \mid A)P(A) + P(\overline{R} \mid \overline{A})P(\overline{A}) \\
+&= 0.02\times0.02 + 0.95\times0.98 = 0.9314
+\end{align*}
+Thus,
+\[
+P(A \mid \overline{R}) = \frac{0.02 \times 0.02}{0.9314} = \frac{0.0004}{0.9314} \approx 0.00042946
+\]
+
+(b)\\
+Using Bayes' Theorem:\\
+\[
+P(A \mid R) = \frac{P(R \mid A) \cdot P(A)}{P(R)}
+\]
+\begin{align*}
+P(R) &= P(R \mid A)P(A) + P(R \mid \overline{A})P(\overline{A}) \\
+&= 0.98\times0.02 + 0.05\times0.98 = 0.0686
+\end{align*}
+Thus,
+\[
+P(A \mid R) = \frac{0.98 \times 0.02}{0.0686} = \frac{0.0196}{0.0686} \approx 0.28571429
+\]
+
+(c)\\
+$X$ is the number of days (out of 30) that the IDS raises an alert. Since days are independent, and there is two possible outcome for this (IDS raises a high-priority alert or not), this is a Bernoulli trial.\\
+
+The expected value of a random variable $X$ on the sample space S is defined as:
+\[
+E(X) = \sum_{s \in S} p(s)X(S)
+\]
+For a binomial random variable $X$ , this simplifies to:
+\[
+E(X) = n \cdot p
+\]
+For $X$,$n = 30, p = 0.0686$, so
+\[
+E(X) = 30 \times 0.0686 = 2.058
+\]
+The variance of a random variable $X$ using the Theorem 
+\[Var(X) = E(X^2) - E(X)^2
+\]
+For a binomial random variable:
+\[
+Var(X) = n \cdot p \cdot (1 - p)
+\]
+Substituting the values:
+\[
+Var(X) = 30 \times 0.0686 \times (1 - 0.0686) \approx 1.917
+\]
+(d)\\
+
+\[
+E[Y] =E[\text{Damage Cost}]  +E[\text{Responding Cost}]
+\]
+
+
+\begin{align*}
+E[\text{Damage Cost}] &= 150000 \times P(A) = 150000 \times 0.02 = 3000 \\
+E[\text{Responding Cost}] &= 5000 \times P(R) = 5000 \times 0.0686 = 343
+\end{align*}
+
+Thus,
+\[
+E[Y] = 3000 + 343 = 3343
+\]
+
+
+\end{document}
